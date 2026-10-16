@@ -1,0 +1,16 @@
+name: double-entry-ledger
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ${LEDGER_POSTGRES_DB}
+      POSTGRES_USER: ${LEDGER_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${LEDGER_POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      timeout: 5s
+      retries: 10

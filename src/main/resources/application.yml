@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: double-entry-ledger
+  datasource:
+    url: ${LEDGER_DATASOURCE_URL}
+    username: ${LEDGER_DATASOURCE_USERNAME}
+    password: ${LEDGER_DATASOURCE_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: true
+  sql:
+    init:
+      mode: never
+
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+      show-components: never
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,db
+  prometheus:
+    metrics:
+      export:
+        enabled: true

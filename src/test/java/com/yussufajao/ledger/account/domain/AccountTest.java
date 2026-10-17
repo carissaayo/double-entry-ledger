@@ -5,6 +5,12 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
+import com.yussufajao.ledger.account.domain.Account;
+import com.yussufajao.ledger.account.domain.AccountStatus;
+import com.yussufajao.ledger.account.domain.AccountType;
+import com.yussufajao.ledger.account.domain.Currency;
+import com.yussufajao.ledger.account.domain.InvalidAccountException;
+
 class AccountTest {
 
 	@Test

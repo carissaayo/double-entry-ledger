@@ -60,9 +60,9 @@ class AccountRepositoryIT {
 
 	@Test
 	void duplicateExternalReferenceAndCurrencyIsRejected() {
-		Account first = Account.open("customer-123", "Customer Wallet", AccountType.CUSTOMER_WALLET,
+		Account first = Account.open("customer-duplicate", "Customer Wallet", AccountType.CUSTOMER_WALLET,
 				Currency.of("NGN"));
-		Account second = Account.open("customer-123", "Another Wallet", AccountType.CUSTOMER_WALLET,
+		Account second = Account.open("customer-duplicate", "Another Wallet", AccountType.CUSTOMER_WALLET,
 				Currency.of("NGN"));
 
 		repository.save(first);

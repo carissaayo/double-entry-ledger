@@ -35,7 +35,7 @@ public class AccountRepositoryAdapter implements AccountRepository {
 	@Override
 	@Transactional(readOnly = true)
 	public boolean existsByExternalReferenceAndCurrency(String externalReference, Currency currency) {
-		return accounts.existsByExternalReferenceAndCurrency(externalReference, currency);
+		return accounts.existsByExternalReferenceAndCurrency(externalReference, currency.code());
 	}
 
 	private static Account toDomain(AccountEntity row) {

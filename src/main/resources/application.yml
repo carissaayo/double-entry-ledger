@@ -1,6 +1,9 @@
 spring:
   application:
     name: double-entry-ledger
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
   datasource:
     url: ${LEDGER_DATASOURCE_URL}
     username: ${LEDGER_DATASOURCE_USERNAME}
